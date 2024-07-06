@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:weather_app_tdd/core/error/failure.dart';
-import 'package:weather_app_tdd/data/models/weather_model.dart';
 import 'package:weather_app_tdd/domain/entities/weather.dart';
 import 'package:weather_app_tdd/presentation/bloc/weather_bloc.dart';
 import 'package:weather_app_tdd/presentation/bloc/weather_event.dart';
@@ -19,15 +18,6 @@ void main() {
     mockGetCurrentWeatherUseCase = MockGetCurrentWeatherUseCase();
     weatherBloc = WeatherBloc(mockGetCurrentWeatherUseCase);
   });
-
-  const weatherModel = WeatherModel(
-      cityName: "New york",
-      main: "main",
-      description: "description",
-      iconCode: "iconCode",
-      temprature: 50,
-      pressure: 5,
-      humidity: 3);
 
   const weatherEntity = WeatherEntity(
       cityName: "New york",
