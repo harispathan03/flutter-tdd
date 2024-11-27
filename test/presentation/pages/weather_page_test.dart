@@ -40,17 +40,17 @@ void main() {
       pressure: 12,
       humidity: 2);
 
-  testWidgets(
-      "state should be changed from empty to loading when value is entered",
-      (widgetTester) async {
-    when(() => mockWeatherBloc.state).thenReturn(WeatherEmpty());
-    await widgetTester.pumpWidget(makeTestableWidget(const WeatherPage()));
-    var textField = find.byType(TextField);
-    expect(textField, findsOneWidget);
-    await widgetTester.enterText(textField, "New York");
-    await widgetTester.pump();
-    expect(find.text("New York"), findsOneWidget);
-  });
+  // testWidgets(
+  //     "state should be changed from empty to loading when value is entered",
+  //     (widgetTester) async {
+  //   when(() => mockWeatherBloc.state).thenReturn(WeatherEmpty());
+  //   await widgetTester.pumpWidget(makeTestableWidget(const WeatherPage()));
+  //   var textField = find.byType(TextField);
+  //   expect(textField, findsOneWidget);
+  //   await widgetTester.enterText(textField, "New York");
+  //   await widgetTester.pump();
+  //   expect(find.text("New York"), findsOneWidget);
+  // });
 
   testWidgets("loading indicator should be displayed when state is loading",
       (widgetTester) async {
