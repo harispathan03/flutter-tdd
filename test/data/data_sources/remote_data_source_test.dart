@@ -35,7 +35,9 @@ void main() {
     test(
         "should return a server exception when there is status code 404 or other",
         () async {
-      when(mockHttpClient.get(Uri.parse(Urls.baseUrl))).thenAnswer((_) async {
+      when(mockHttpClient
+              .get(Uri.parse(Urls.getUrl(Urls.latitude, Urls.longitude))))
+          .thenAnswer((_) async {
         return http.Response("Server exception", 404);
       });
 
