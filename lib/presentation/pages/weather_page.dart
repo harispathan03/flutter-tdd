@@ -39,17 +39,11 @@ class WeatherPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
               ),
               onChanged: (query) async {
-                try {
-                  List<Location> locations = await locationFromAddress(query);
-                  String lat = locations[0].latitude.toString();
-                  String long = locations[0].longitude.toString();
-                  if (context.mounted) {
-                    context
-                        .read<WeatherBloc>()
-                        .add(OnLocationChanged(lat, long));
-                  }
-                } catch (e) {
-                  print("Error: $e");
+                List<Location> locations = await locationFromAddress(query);
+                String lat = locations[0].latitude.toString();
+                String long = locations[0].longitude.toString();
+                if (context.mounted) {
+                  context.read<WeatherBloc>().add(OnLocationChanged(lat, long));
                 }
               },
             ),
